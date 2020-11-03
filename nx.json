@@ -22,5 +22,16 @@
       }
     }
   },
-  "projects": {}
+  "projects": {
+    "pokemon-app": {
+      "tags": []
+    },
+    "pokemon-app-e2e": {
+      "tags": [],
+      "implicitDependencies": ["pokemon-app"]
+    },
+    "pokemon-api": {
+      "tags": []
+    }
+  }
 }
