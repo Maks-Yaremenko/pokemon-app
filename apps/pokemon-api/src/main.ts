@@ -1,18 +1,28 @@
-/**
- * This is not a production server yet!
- * This is only a minimal backend to get started.
- */
-
 import * as express from 'express';
+import * as cors from 'cors';
+import * as path from 'path';
+
+import { corsConfig } from './app/configs/cors';
+
+// Routes import
+import { addPokemonRoutes } from './app/routes/pokemonRoutes';
 
 const app = express();
 
-app.get('/api', (req, res) => {
-  res.send({ message: 'Welcome to pokemon-api!' });
+// Middlewares
+app.use(cors(corsConfig));
+app.use(express.static(path.join('dist/apps/pokemon-app')));
+
+// Routes
+addPokemonRoutes(app);
+
+// Server launch configs
+const port = process.env.port || 4201;
+
+const server = app.listen(port, () => {
+  console.log('Listening at http://localhost:' + port);
 });
 
-const port = process.env.port || 3333;
-const server = app.listen(port, () => {
-  console.log(`Listening at http://localhost:${port}/api`);
+server.on('error', (err) => {
+  console.log('Server error:', err);
 });
-server.on('error', console.error);

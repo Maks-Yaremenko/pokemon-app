@@ -24,14 +24,28 @@
   },
   "projects": {
     "pokemon-app": {
-      "tags": []
+      "tags": ["scope:pokemon-app"],
+      "implicitDependencies": ["pokemon-data-access", "pokemon-ui"]
     },
     "pokemon-app-e2e": {
-      "tags": [],
+      "tags": ["scope:pokemon-app"],
       "implicitDependencies": ["pokemon-app"]
     },
     "pokemon-api": {
-      "tags": []
+      "tags": ["scope:pokemon-api"],
+      "implicitDependencies": ["pokemon-models"]
+    },
+    "pokemon-data-access": {
+      "tags": ["scope:pokemon-data-access"],
+      "implicitDependencies": ["pokemon-models"]
+    },
+    "pokemon-ui": {
+      "tags": ["scope:pokemon-ui"],
+      "implicitDependencies": []
+    },
+    "pokemon-models": {
+      "tags": ["scope:pokemon-models"],
+      "implicitDependencies": []
     }
   }
 }

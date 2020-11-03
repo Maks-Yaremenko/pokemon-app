@@ -26,7 +26,29 @@
         "enforceBuildableLibDependency": true,
         "allow": [],
         "depConstraints": [
-          { "sourceTag": "*", "onlyDependOnLibsWithTags": ["*"] }
+          {
+            "sourceTag": "scope:pokemon-app",
+            "onlyDependOnLibsWithTags": [
+              "scope:pokemon-data-access",
+              "scope:pokemon-models",
+              "scope:pokemon-ui"
+            ]
+          },
+          {
+            "sourceTag": "scope:pokemon-api",
+            "onlyDependOnLibsWithTags": [
+              "scope:pokemon-data-access",
+              "scope:pokemon-models"
+            ]
+          },
+          {
+            "sourceTag": "scope:pokemon-data-access",
+            "onlyDependOnLibsWithTags": ["scope:pokemon-models"]
+          },
+          {
+            "sourceTag": "scope:pokemon-models",
+            "onlyDependOnLibsWithTags": []
+          }
         ]
       }
     ]
