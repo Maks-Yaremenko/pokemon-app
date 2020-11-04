@@ -1,21 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { Message } from '@lib-pokemon/models';
-import { getPokemons } from '@lib-pokemon/data-access';
+import React from 'react';
+import './app.scss';
+
+import { SmartDemoComponent } from '@lib-pokemon/ui';
 
 export const App = () => {
-  const [{ message }, setMessage] = useState<Message>({ message: '' });
-
-  useEffect(() => {
-    getPokemons().then((message: Message) => setMessage(message));
-  }, []);
-
   return (
-    <>
-      <div style={{ textAlign: 'center' }}>
-        <h1>Welcome to pokemon-app!</h1>
+    <div className="ui container app-container">
+      <h1>Welcome to pokemon-app!</h1>
+      <div className="ui card app-container_card">
+        <div className="content">
+          <SmartDemoComponent></SmartDemoComponent>
+        </div>
       </div>
-      <div>{message}</div>
-    </>
+    </div>
   );
 };
 

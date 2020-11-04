@@ -1,0 +1,21 @@
+.app-sticky-head-table {
+  min-height: 440px;
+
+  .p-datatable-thead {
+    .app-sticky-head-table_header-column {
+      text-align: center;
+    }
+  }
+
+  .p-datatable-tbody {
+    .app-sticky-head-table_column {
+      text-align: center;
+    }
+  }
+
+  &_footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
