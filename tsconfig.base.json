@@ -16,6 +16,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@pokemon-app/environments/*": ["apps/pokemon-app/src/environments/*"],
       "@lib-pokemon/data-access": ["libs/pokemon/data-access/src/index.ts"],
       "@lib-pokemon/ui": ["libs/pokemon/ui/src/index.ts"],
       "@lib-pokemon/models": ["libs/pokemon/models/src/index.ts"]

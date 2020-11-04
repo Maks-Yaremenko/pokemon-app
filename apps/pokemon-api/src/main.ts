@@ -17,7 +17,7 @@ app.use(express.static(path.join('dist/apps/pokemon-app')));
 addPokemonRoutes(app);
 
 // Server launch configs
-const port = process.env.port || 4201;
+const port = process.env.PORT || 4201;
 
 const server = app.listen(port, () => {
   console.log('Listening at http://localhost:' + port);

@@ -6,6 +6,7 @@ export interface StickyHeadTableProps {
   prevPage: () => void;
   onSelected: (event) => void;
   itemsPerPage: number;
+  loading: boolean;
 }
 
 export interface StickyHeadTableState {

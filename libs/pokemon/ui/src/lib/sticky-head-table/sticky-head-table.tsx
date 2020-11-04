@@ -49,27 +49,27 @@ export const StickyHeadTable = (props: StickyHeadTableProps) => {
           icon="pi pi-angle-left"
           disabled={!state.dataSource?.previous}
           onClick={props.prevPage}
-          className="p-button-rounded p-button-text"
+          className="p-button-rounded p-button-text app-sticky-head-table_pagination-button"
         />
         <Button
           disabled={!state.dataSource?.next}
           icon="pi pi-angle-right"
           onClick={props.nextPage}
-          className="p-button-rounded p-button-text"
+          className="p-button-rounded p-button-text app-sticky-head-table_pagination-button"
         />
       </div>
     );
   };
 
   useEffect(() => {
-    setState({ ...state, loading: true });
-  }, []);
-
-  useEffect(() => {
     if (props.dataSource) {
       setState({ ...state, loading: false, dataSource: props.dataSource });
     }
   }, [props.dataSource]);
+
+  useEffect(() => {
+    setState({ ...state, loading: props.loading });
+  }, [props.loading]);
 
   return (
     <DataTable

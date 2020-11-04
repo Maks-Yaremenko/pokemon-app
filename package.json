@@ -2,14 +2,15 @@
   "name": "pokemon-workspace",
   "version": "0.0.0",
   "license": "MIT",
+  "engines": {
+    "node": "12.16.1"
+  },
   "scripts": {
     "nx": "nx",
-    "start": "nx serve",
     "start:api": "nx serve pokemon-api",
     "start:dev": "nx serve pokemon-app",
-    "start:server": "node dist/apps/pokemon-api/main.js",
-    "build": "nx build",
-    "build:all": "nx run-many --target=build --projects=pokemon-app,pokemon-api",
+    "start": "node dist/apps/pokemon-api/main.js",
+    "build": "nx run-many --target=build --configuration=production --projects=pokemon-app,pokemon-api",
     "test": "nx test",
     "lint": "nx workspace-lint && nx lint",
     "e2e": "nx e2e",
@@ -40,7 +41,8 @@
     "primereact": "^5.0.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "react-transition-group": "^4.4.1"
+    "react-transition-group": "^4.4.1",
+    "tslib": "^2.0.3"
   },
   "devDependencies": {
     "@babel/core": "7.9.6",

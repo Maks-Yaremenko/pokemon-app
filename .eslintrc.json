@@ -39,11 +39,17 @@
           },
           {
             "sourceTag": "scope:pokemon-data-access",
-            "onlyDependOnLibsWithTags": ["scope:pokemon-models"]
+            "onlyDependOnLibsWithTags": [
+              "scope:pokemon-models",
+              "scope:pokemon-app"
+            ]
           },
           {
             "sourceTag": "scope:pokemon-ui",
-            "onlyDependOnLibsWithTags": ["scope:pokemon-models"]
+            "onlyDependOnLibsWithTags": [
+              "scope:pokemon-models",
+              "scope:pokemon-app"
+            ]
           },
           {
             "sourceTag": "scope:pokemon-models",

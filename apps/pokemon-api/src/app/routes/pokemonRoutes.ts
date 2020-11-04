@@ -2,9 +2,8 @@ import { Express } from 'express';
 import { pokeapi } from '../apis/pokeapi';
 
 const getPokemons = async function (req, res) {
-  const response = await pokeapi.get('/pokemon');
-
   try {
+    const response = await pokeapi.get('/pokemon');
     res.send(response.data);
   } catch (error) {
     res.status(500).json({ error: 'Something went wrong, try again later' });
@@ -12,9 +11,8 @@ const getPokemons = async function (req, res) {
 };
 
 const getPokemonById = async function (req, res) {
-  const response = await pokeapi.get(`/pokemon/${req.params.id}`);
-
   try {
+    const response = await pokeapi.get(`/pokemon/${req.params.id}`);
     res.send(response.data.abilities);
   } catch (error) {
     res.status(500).json({ error: 'Something went wrong, try again later' });

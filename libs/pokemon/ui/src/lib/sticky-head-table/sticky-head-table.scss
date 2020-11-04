@@ -2,8 +2,10 @@
   min-height: 440px;
 
   .p-datatable-thead {
-    .app-sticky-head-table_header-column {
-      text-align: center;
+    .app-sticky-head-table {
+      &_header-column {
+        text-align: center;
+      }
     }
   }
 
@@ -13,9 +15,17 @@
     }
   }
 
-  &_footer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .p-datatable-footer {
+    .app-sticky-head-table {
+      &_footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      &_pagination-button {
+        margin-left: 8px;
+      }
+    }
   }
 }
