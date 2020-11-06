@@ -1,13 +1,15 @@
-import { pokemons } from '../apis/pokemons';
-import { PokemonAbilityResponse, PokemonsResponse } from '../models/pokemon';
+import axios from 'axios';
+
+import {
+  PokemonAbilityResponse,
+  PokemonsResponse,
+} from '@lib-pokemon-models/pokemon';
 
 export const getPokemons = (url?: string): Promise<PokemonsResponse> => {
-  return pokemons.get(url ? url : '/pokemon').then((r) => r.data);
+  return axios.get(url ? url : '/pokemon').then((r) => r.data);
 };
 
 export const getPokemon = (url: string): Promise<PokemonAbilityResponse> => {
-  const part = 'pokemon/';
-  const idx = url.indexOf(part);
-
-  return pokemons.get(url.substring(idx)).then((r) => r.data);
+  const idx = url.indexOf('pokemon/');
+  return axios.get(url.substring(idx)).then((r) => r.data);
 };

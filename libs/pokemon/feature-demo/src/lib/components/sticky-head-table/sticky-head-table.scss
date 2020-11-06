@@ -1,8 +1,8 @@
-.app-sticky-head-table {
+.sticky-head-table {
   min-height: 440px;
 
   .p-datatable-thead {
-    .app-sticky-head-table {
+    .sticky-head-table {
       &_header-column {
         text-align: center;
       }
@@ -10,13 +10,13 @@
   }
 
   .p-datatable-tbody {
-    .app-sticky-head-table_column {
+    .sticky-head-table_column {
       text-align: center;
     }
   }
 
   .p-datatable-footer {
-    .app-sticky-head-table {
+    .sticky-head-table {
       &_footer {
         display: flex;
         align-items: center;

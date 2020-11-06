@@ -1,7 +1,7 @@
 import React, { ReactElement, useEffect, useState } from 'react';
 import { DataTable } from 'primereact/datatable';
 import { Button } from 'primereact/button';
-import { Column } from 'primereact/column';
+import { Column, ColumnProps } from 'primereact/column';
 
 import {
   StickyHeadTableProps,
@@ -20,17 +20,32 @@ export const StickyHeadTable = (props: StickyHeadTableProps) => {
     let from = 1;
     let to = 20;
 
-    const previous = state.dataSource?.previous;
+    const { previous } = state.dataSource;
 
     if (previous) {
-      const offset = Number(
-        new URL(state.dataSource?.previous).searchParams.get('offset')
-      );
-      from = offset + props.itemsPerPage + 1;
-      to = offset + props.itemsPerPage * 2;
+      const searchParams = new URL(state.dataSource?.previous).searchParams;
+      const offset = Number(searchParams.get('offset'));
+      const limit = Number(searchParams.get('limit'));
+
+      from = offset + limit + 1;
+      to = offset + limit * 2;
     }
 
     return { from, to };
+  };
+
+  const columnsTemplate = (): ReactElement[] => {
+    return props.columnConfig.map((c: ColumnProps) => {
+      return (
+        <Column
+          key={c.field}
+          field={c.field}
+          header={c.header}
+          headerClassName={c.headerClassName}
+          className={c.className}
+        ></Column>
+      );
+    });
   };
 
   const footerTemplate = (): ReactElement => {
@@ -41,7 +56,7 @@ export const StickyHeadTable = (props: StickyHeadTableProps) => {
     const { from, to } = getFromTo();
 
     return (
-      <div className="app-sticky-head-table_footer">
+      <div className="sticky-head-table_footer">
         <span>
           Showing {from} to {to} of {state.dataSource?.count}
         </span>
@@ -49,13 +64,13 @@ export const StickyHeadTable = (props: StickyHeadTableProps) => {
           icon="pi pi-angle-left"
           disabled={!state.dataSource?.previous}
           onClick={props.prevPage}
-          className="p-button-rounded p-button-text app-sticky-head-table_pagination-button"
+          className="p-button-rounded p-button-text sticky-head-table_pagination-button"
         />
         <Button
           disabled={!state.dataSource?.next}
           icon="pi pi-angle-right"
           onClick={props.nextPage}
-          className="p-button-rounded p-button-text app-sticky-head-table_pagination-button"
+          className="p-button-rounded p-button-text sticky-head-table_pagination-button"
         />
       </div>
     );
@@ -77,17 +92,12 @@ export const StickyHeadTable = (props: StickyHeadTableProps) => {
       loading={state.loading}
       scrollable
       scrollHeight="440px"
-      className="app-sticky-head-table"
+      className="sticky-head-table"
       selectionMode="single"
       onSelectionChange={props.onSelected}
       footer={footerTemplate()}
     >
-      <Column
-        field="name"
-        header="Pokemon name"
-        headerClassName={'app-sticky-head-table_header-column'}
-        className="app-sticky-head-table_column"
-      ></Column>
+      {columnsTemplate()}
     </DataTable>
   );
 };

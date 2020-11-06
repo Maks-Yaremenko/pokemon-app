@@ -24,28 +24,27 @@
   },
   "projects": {
     "pokemon-app": {
-      "tags": ["scope:pokemon-app"],
-      "implicitDependencies": ["pokemon-data-access", "pokemon-ui"]
+      "tags": ["scope:pokemon-app", "type:app"],
+      "implicitDependencies": []
     },
     "pokemon-app-e2e": {
-      "tags": ["scope:pokemon-app"],
-      "implicitDependencies": ["pokemon-app"]
+      "tags": ["scope:pokemon-app", "type:e2e"],
+      "implicitDependencies": []
     },
     "pokemon-api": {
-      "tags": ["scope:pokemon-api"],
-      "implicitDependencies": ["pokemon-models"]
+      "tags": ["scope:pokemon-api", "type:app"],
+      "implicitDependencies": []
     },
     "pokemon-data-access": {
-      "tags": ["scope:pokemon-data-access"],
-      "implicitDependencies": ["pokemon-models"]
-    },
-    "pokemon-ui": {
-      "tags": ["scope:pokemon-ui"],
+      "tags": ["scope:pokemon-lib", "type:data-access"],
       "implicitDependencies": []
     },
     "pokemon-models": {
-      "tags": ["scope:pokemon-models"],
+      "tags": ["scope:pokemon-lib", "type:models"],
       "implicitDependencies": []
+    },
+    "pokemon-feature-demo": {
+      "tags": ["scope:pokemon-lib", "type:feature"]
     }
   }
 }

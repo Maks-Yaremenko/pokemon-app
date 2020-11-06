@@ -28,32 +28,60 @@
         "depConstraints": [
           {
             "sourceTag": "scope:pokemon-app",
-            "onlyDependOnLibsWithTags": [
-              "scope:pokemon-data-access",
-              "scope:pokemon-ui"
-            ]
+            "onlyDependOnLibsWithTags": ["scope:pokemon-lib"]
           },
           {
             "sourceTag": "scope:pokemon-api",
-            "onlyDependOnLibsWithTags": ["scope:pokemon-models"]
+            "onlyDependOnLibsWithTags": ["scope:pokemon-lib"]
           },
           {
-            "sourceTag": "scope:pokemon-data-access",
+            "sourceTag": "scope:pokemon-lib",
             "onlyDependOnLibsWithTags": [
-              "scope:pokemon-models",
-              "scope:pokemon-app"
+              "type:ui",
+              "type:models",
+              "type:feature",
+              "type:data-access"
             ]
           },
           {
-            "sourceTag": "scope:pokemon-ui",
+            "sourceTag": "type:ui",
+            "onlyDependOnLibsWithTags": ["type:ui", "type:models"]
+          },
+          {
+            "sourceTag": "type:models",
+            "onlyDependOnLibsWithTags": ["type:models"]
+          },
+          {
+            "sourceTag": "type:data-access",
+            "onlyDependOnLibsWithTags": ["type:data-access", "type:models"]
+          },
+          {
+            "sourceTag": "type:app",
             "onlyDependOnLibsWithTags": [
-              "scope:pokemon-models",
-              "scope:pokemon-app"
+              "type:ui",
+              "type:models",
+              "type:feature",
+              "type:data-access"
             ]
           },
           {
-            "sourceTag": "scope:pokemon-models",
-            "onlyDependOnLibsWithTags": []
+            "sourceTag": "type:feature",
+            "onlyDependOnLibsWithTags": [
+              "type:ui",
+              "type:models",
+              "type:feature",
+              "type:data-access"
+            ]
+          },
+          {
+            "sourceTag": "type:e2e",
+            "onlyDependOnLibsWithTags": [
+              "type:e2e",
+              "type:ui",
+              "type:models",
+              "type:feature",
+              "type:data-access"
+            ]
           }
         ]
       }

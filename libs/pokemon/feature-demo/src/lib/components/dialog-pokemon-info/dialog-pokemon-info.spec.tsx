@@ -1,11 +1,11 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import PokemonInfo from './pokemon-info';
+import DialogPokemonInfo from './dialog-pokemon-info';
 
-describe('PokemonInfo', () => {
+describe('DialogPokemonInfo', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<PokemonInfo />);
+    const { baseElement } = render(<DialogPokemonInfo />);
     expect(baseElement).toBeTruthy();
   });
 });

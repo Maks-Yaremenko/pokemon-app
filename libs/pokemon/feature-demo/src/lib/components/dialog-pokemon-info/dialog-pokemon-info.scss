@@ -1,0 +1,28 @@
+.p-component.dialog-pokemon-info {
+  .p-dialog-header {
+    padding-bottom: 16px;
+    .p-dialog-title {
+      font-weight: 500;
+      font-size: 18px;
+    }
+  }
+
+  .dialog-pokemon-info {
+    &_ability-list-header {
+      margin: 0 0 12px 0;
+      font-size: 14px;
+    }
+    &_ability-list {
+      margin: auto;
+      padding: 0;
+    }
+    &_ability-name {
+      list-style: none;
+      font-size: 14px;
+      line-height: 20px;
+    }
+    &_ability-name:not(:last-child) {
+      border-bottom: 1px solid lightgray;
+    }
+  }
+}

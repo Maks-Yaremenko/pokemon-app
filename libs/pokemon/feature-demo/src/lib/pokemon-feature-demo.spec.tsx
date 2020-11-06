@@ -1,11 +1,11 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import { SmartDemoComponent } from './smart-demo-component';
+import PokemonFeatureDemo from './pokemon-feature-demo';
 
-describe('DemoComponent', () => {
+describe('PokemonFeatureDemo', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<SmartDemoComponent />);
+    const { baseElement } = render(<PokemonFeatureDemo />);
     expect(baseElement).toBeTruthy();
   });
 });

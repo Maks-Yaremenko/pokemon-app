@@ -2,22 +2,12 @@ import React, { ReactElement, useEffect, useState } from 'react';
 import { Button } from 'primereact/button';
 import { Dialog } from 'primereact/dialog';
 
-import './pokemon-info.scss';
+import { PokemonAbility } from '@lib-pokemon-models/pokemon';
+import { DialogPokemonInfoProps } from './dialog-pokemon-info.models';
 
-import { PokemonAbility } from '@lib-pokemon/models';
+import './dialog-pokemon-info.scss';
 
-/* eslint-disable-next-line */
-export interface PokemonInfoProps {
-  visibility: boolean;
-  onHide?: () => void;
-  title?: string;
-  data?: {
-    name: string;
-    abilities: PokemonAbility[];
-  };
-}
-
-export const PokemonInfo = (props: PokemonInfoProps) => {
+export const DialogPokemonInfo = (props: DialogPokemonInfoProps) => {
   const [visibility, setVisibility] = useState(false);
 
   useEffect(() => {
@@ -33,9 +23,9 @@ export const PokemonInfo = (props: PokemonInfoProps) => {
   const listItem = (abilities: PokemonAbility[]): ReactElement[] => {
     return abilities.map((i) => {
       return (
-        <div key={i.ability.name} className="item">
-          <div className="content">{i.ability.name}</div>
-        </div>
+        <li key={i.ability.name} className="dialog-pokemon-info_ability-name">
+          <span>{i.ability.name}</span>
+        </li>
       );
     });
   };
@@ -45,12 +35,14 @@ export const PokemonInfo = (props: PokemonInfoProps) => {
       return null;
     }
     return (
-      <>
-        <h5 className="ui header">Pokemon abilities:</h5>
-        <div className="ui middle aligned divided list">
+      <div>
+        <h5 className="dialog-pokemon-info_ability-list-header">
+          Pokemon abilities:
+        </h5>
+        <ul className={'dialog-pokemon-info_ability-list'}>
           {listItem(abilities)}
-        </div>
-      </>
+        </ul>
+      </div>
     );
   };
 
@@ -61,6 +53,7 @@ export const PokemonInfo = (props: PokemonInfoProps) => {
       visible={visibility}
       style={{ width: '30vw' }}
       modal
+      className="dialog-pokemon-info"
       onHide={props.onHide}
     >
       {listBox(props.data?.abilities)}

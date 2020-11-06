@@ -1,5 +1,4 @@
 export const environment = {
-  host: 'http://localhost',
-  port: '4200',
+  allowedOrigins: [],
   production: true,
 };

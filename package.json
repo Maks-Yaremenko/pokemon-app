@@ -7,8 +7,8 @@
   },
   "scripts": {
     "nx": "nx",
-    "start:api": "nx serve pokemon-api",
-    "start:dev": "nx serve pokemon-app",
+    "serve:api": "nx serve pokemon-api",
+    "serve:dev": "nx serve pokemon-app",
     "start": "node dist/apps/pokemon-api/main.js",
     "build": "nx run-many --target=build --configuration=production --projects=pokemon-app,pokemon-api",
     "test": "nx test",

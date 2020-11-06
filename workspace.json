@@ -51,7 +51,8 @@
         "serve": {
           "builder": "@nrwl/web:dev-server",
           "options": {
-            "buildTarget": "pokemon-app:build"
+            "buildTarget": "pokemon-app:build",
+            "proxyConfig": "apps/pokemon-app/proxy.conf.json"
           },
           "configurations": {
             "production": {
@@ -171,27 +172,6 @@
         }
       }
     },
-    "pokemon-ui": {
-      "root": "libs/pokemon/ui",
-      "sourceRoot": "libs/pokemon/ui/src",
-      "projectType": "library",
-      "schematics": {},
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/pokemon/ui/**/*.ts"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/pokemon/ui/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
     "pokemon-models": {
       "root": "libs/pokemon/models",
       "sourceRoot": "libs/pokemon/models/src",
@@ -208,6 +188,29 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/pokemon/models/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "pokemon-feature-demo": {
+      "root": "libs/pokemon/feature-demo",
+      "sourceRoot": "libs/pokemon/feature-demo/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/pokemon/feature-demo/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/pokemon/feature-demo/jest.config.js",
             "passWithNoTests": true
           }
         }

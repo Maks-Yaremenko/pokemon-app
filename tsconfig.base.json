@@ -17,9 +17,9 @@
     "baseUrl": ".",
     "paths": {
       "@pokemon-app/environments/*": ["apps/pokemon-app/src/environments/*"],
-      "@lib-pokemon/data-access": ["libs/pokemon/data-access/src/index.ts"],
-      "@lib-pokemon/ui": ["libs/pokemon/ui/src/index.ts"],
-      "@lib-pokemon/models": ["libs/pokemon/models/src/index.ts"]
+      "@lib-pokemon-data-access/*": ["libs/pokemon/data-access/src/lib/*"],
+      "@lib-pokemon-models/*": ["libs/pokemon/models/src/lib/*"],
+      "@pokemon-feature-demo": ["libs/pokemon/feature-demo/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

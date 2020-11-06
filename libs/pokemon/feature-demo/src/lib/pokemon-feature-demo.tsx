@@ -1,25 +1,41 @@
 import React, { SyntheticEvent, useEffect, useState } from 'react';
 
-import { StickyHeadTable } from '../sticky-head-table/sticky-head-table';
-import { PokemonInfo, PokemonInfoProps } from '../pokemon-info/pokemon-info';
+import './pokemon-feature-demo.scss';
 
+import {
+  PokemonAbilityResponse,
+  PokemonsResponse,
+} from '@lib-pokemon-models/pokemon';
 import {
   getPokemon,
   getPokemons,
-  PokemonAbilityResponse,
-  PokemonsResponse,
-} from '@lib-pokemon/data-access';
+} from '@lib-pokemon-data-access/services/pokemon.service';
 
-import './smart-demo-component.scss';
+import {
+  DialogPokemonInfo,
+  DialogPokemonInfoProps,
+  StickyHeadTable,
+} from './components';
 
-export const SmartDemoComponent = () => {
+/* eslint-disable-next-line */
+export interface PokemonFeatureDemoProps {}
+
+export const PokemonFeatureDemo = (props: PokemonFeatureDemoProps) => {
   const [loading, setLoading] = useState<boolean>();
   const [dataSource, setDataSource] = useState<PokemonsResponse>();
-  const [dialogData, setDialogData] = useState<PokemonInfoProps>({
+  const [dialogData, setDialogData] = useState<DialogPokemonInfoProps>({
     title: '',
     visibility: false,
     data: null,
   });
+  const pokemonTableColumns = [
+    {
+      field: 'name',
+      header: 'Pokemon name',
+      headerClassName: 'sticky-head-table_header-column',
+      className: 'sticky-head-table_column',
+    },
+  ];
 
   useEffect(() => {
     getPokemons().then((dataSource: PokemonsResponse) => {
@@ -70,8 +86,9 @@ export const SmartDemoComponent = () => {
         onSelected={onSelected}
         itemsPerPage={20}
         loading={loading}
+        columnConfig={pokemonTableColumns}
       ></StickyHeadTable>
-      <PokemonInfo {...dialogData} onHide={dialogOnHide} />
+      <DialogPokemonInfo {...dialogData} onHide={dialogOnHide} />
     </>
   );
 };

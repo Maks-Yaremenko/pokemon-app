@@ -1,15 +1,15 @@
 import React from 'react';
 import './app.scss';
 
-import { SmartDemoComponent } from '@lib-pokemon/ui';
+import { PokemonFeatureDemo } from '@pokemon-feature-demo';
 
 export const App = () => {
   return (
     <div className="ui container app-container">
       <h1>Welcome to pokemon-app!</h1>
-      <div className="ui card app-container_card">
+      <div className="ui card">
         <div className="content">
-          <SmartDemoComponent></SmartDemoComponent>
+          <PokemonFeatureDemo></PokemonFeatureDemo>
         </div>
       </div>
     </div>
